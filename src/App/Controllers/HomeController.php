@@ -19,7 +19,7 @@ class HomeController
 
   public function home()
   {
-    $this->view->render("/index.php", [
+    echo $this->view->render("/index.php", [
       'title' => 'HOME PAGE †††'
       /** NOTE - becomes varibles because of extract() function from TemplateEngine class */
     ]);
