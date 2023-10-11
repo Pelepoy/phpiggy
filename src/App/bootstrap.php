@@ -3,16 +3,15 @@
 declare(strict_types=1);
 
 // include __DIR__. "/../Framework/App.php";
-require __DIR__. "/../../vendor/autoload.php";
+require __DIR__ . "/../../vendor/autoload.php";
 
 use Framework\App;
-use App\Controllers\HomeController;
+use App\Config\Paths;
 
+use function App\Config\registerRoutes; // include functions from Routes.php using namespace
 
-$app = new App();
+$app = new App(Paths::SOURCE . "App/container-definitions.php");
 
-# NOTE - Normalized path
-$app->get('/', [HomeController::class, 'home']); // registering home controller class, home (method) pass from controller
-// dd($app);
+registerRoutes($app);
 
 return $app;
