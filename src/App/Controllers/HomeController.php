@@ -16,11 +16,8 @@ class HomeController
 
   public function home()
   {
-    echo $this->view->render("/index.php", [
-      'title' => 'Home page', // dynamic title for browser 
-      'greet' => 'Hiii'
-      /** NOTE - becomes varibles because of extract() function from TemplateEngine class */
-    ]);
+    echo $this->view->render("index.php");
+    /** NOTE - becomes varibles because of extract() function from TemplateEngine class */
     // echo "THIS IS HOME PAGE!";
   }
 }
