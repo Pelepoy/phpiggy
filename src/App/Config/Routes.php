@@ -5,7 +5,11 @@ declare(strict_types=1);
 namespace App\Config;
 
 use Framework\App;
-use App\Controllers\{HomeController, AboutController};
+use App\Controllers\{
+  HomeController,
+  AboutController,
+  AuthController
+};
 
 // need to manually add into composer autoload as "file": file path" then CLI composer dump-autoload
 function registerRoutes(App $app)
@@ -14,4 +18,6 @@ function registerRoutes(App $app)
   $app->get('/', [HomeController::class, 'home']); // registering home controller class, home (method) pass from controller
   // dd($app);
   $app->get('/about', [AboutController::class, 'about']);
+  $app->get('/register', [AuthController::class, 'registerView']);
+  $app->post('/register', [AuthController::class, 'register']);
 }
