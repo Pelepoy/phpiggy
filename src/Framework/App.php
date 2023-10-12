@@ -27,8 +27,19 @@ class App
 
     $this->router->dispatch($path, $method, $this->container);
   }
+  // GET routes
   public function get(string $path, array $controller)
   {
     $this->router->add('GET', $path, $controller);
+  }
+  // POST routes
+  public function post(string $path, array $controller)
+  {
+    $this->router->add('POST', $path, $controller);
+  }
+
+  public function addMiddleware(string $middleware)
+  {
+    $this->router->addMiddleware($middleware);
   }
 }
