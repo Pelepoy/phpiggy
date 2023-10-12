@@ -6,5 +6,7 @@ use Framework\TemplateEngine;
 use App\Config\Paths;
 
 return [
-  TemplateEngine::class => fn () => new TemplateEngine(Paths::VIEW)
+  //injectable dependencies
+  TemplateEngine::class => fn () => new TemplateEngine(Paths::VIEW),
+  ValidatorService::class => fn () => new ValidatorService()
 ];
