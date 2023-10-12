@@ -8,10 +8,11 @@ require __DIR__ . "/../../vendor/autoload.php";
 use Framework\App;
 use App\Config\Paths;
 
-use function App\Config\registerRoutes; // include functions from Routes.php using namespace
+use function App\Config\{registerRoutes, registerMiddleware}; // include functions from Routes.php using namespace
 
 $app = new App(Paths::SOURCE . "App/container-definitions.php");
 
 registerRoutes($app);
+registerMiddleware($app);
 
 return $app;
